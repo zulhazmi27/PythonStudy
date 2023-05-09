@@ -1,8 +1,9 @@
 def calcWeight(totalValue,totalweight, sortedweight, sortedvalue, w, i):
         excessweight = totalweight - w
+        fraction = (sortedweight[i] - excessweight)/sortedweight[i]
         totalweight -= sortedweight[i]
-        totalweight +=  ((sortedweight[i] - excessweight)/sortedweight[i]) * sortedweight[i]
-        totalValue += ((sortedweight[i] - excessweight)/sortedweight[i]) * sortedvalue[i]
+        totalweight +=  fraction * sortedweight[i]
+        totalValue += fraction * sortedvalue[i]
         
         print(f"total weight = {totalweight} and total value = {totalValue}")
 
