@@ -9,7 +9,7 @@ def calcWeight(totalValue,totalweight, sortedweight, sortedvalue, w, i):
 
 def greedyAlgo(w, weight, value, n):
     if n == 0 or w == 0:
-        return 0; #base case
+        return 0
     
     valueperweight = []
     
@@ -62,3 +62,4 @@ value = [20, 30, 50, 10]
 w = 16
 n = len(weight)
 greedyAlgo(w, weight, value, n)
+
