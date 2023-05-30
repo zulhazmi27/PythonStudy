@@ -1,3 +1,5 @@
+#Write a code for knapsack problem (with DP)
+
 def calcWeight(totalValue,totalweight, sortedweight, sortedvalue, w, i):
         excessweight = totalweight - w
         fraction = (sortedweight[i] - excessweight)/sortedweight[i]
