@@ -17,7 +17,6 @@ def get_weather():
     temperature = details["current"]["temp_c"]
     location = details["location"]["name"]
     country = details["location"]["country"]
-    timeDate = details["location"]["localtime"]
     feelsliketemp = details["current"]["feelslike_c"]
     
     return f"The temperature is {temperature} degree celsius in {location} {country} right now, but it can feels like {feelsliketemp} degree celcius" #return the temperature and location

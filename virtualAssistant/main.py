@@ -1,6 +1,7 @@
 from intent_classification.intent_classification import IntentClassifier #import IntentClassifier class from intent_classification\intent_classification.py
 from assistant_functions.weather import get_weather #import get_weather function from assistant_functions\weather.py
 from assistant_functions.goodbye import get_goodbye #import get_goodbye function from assistant_functions\goodbye.py
+from assistant_functions.greeting import get_greeting #import get_greeting function from assistant_functions\greeting.py
 import pyttsx3 #import pyttsx library (text to speech)
 import speech_recognition as sr #import speech_recognition library (speech to text)
 
@@ -25,14 +26,18 @@ class Assistant:
                     
         replies = {
             "weather": get_weather,
-            "leaving": get_goodbye
+            "leaving": get_goodbye,
+            "greeting": get_greeting
             } #create a dictionary of replies
         
         reply_func = replies[intent] #get the function from the dictionary
         
         try:
             if callable(reply_func): #check if the function is callable
-                self.say(reply_func()) #say the reply
+                if reply_func == get_greeting:
+                    self.say(reply_func(self))
+                else:
+                    self.say(reply_func()) #say the reply
                 
         except Exception as e:
             print(f"Error: {e}") #print the error message if there is an error
@@ -49,14 +54,14 @@ class Assistant:
         
         with self.mic as source:
             print("Listening...")
-            audio = self.r.listen(source, timeout = 7, phrase_time_limit = 10) #listen to the microphone and store the audio into a variable
+            audio = self.r.listen(source, timeout = 5, phrase_time_limit = 10) #listen to the microphone and store the audio into a variable
             
         return self.r.recognize_google(audio) #return the text from the audio
     
     def main(self):
         #main function of the assistant
         
-        self.say(f"Hello!, my name is {self.name}!, How can I help you today?") #Greetings
+        self.say("Hello!")
         
         while True:
             said = self.listen() #listen to the microphone and store the text into a variable
