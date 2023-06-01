@@ -1,2 +1,2 @@
 # PythonStudy
-Any code related to python in during my degree
+Any code related to python during my degree
