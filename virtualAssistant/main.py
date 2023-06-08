@@ -2,6 +2,8 @@ from intent_classification.intent_classification import IntentClassifier #import
 from assistant_functions.weather import get_weather #import get_weather function from assistant_functions\weather.py
 from assistant_functions.goodbye import get_goodbye #import get_goodbye function from assistant_functions\goodbye.py
 from assistant_functions.greeting import get_greeting #import get_greeting function from assistant_functions\greeting.py
+from assistant_functions.dateTime import get_dateTime #import get_dateTime function from assistant_functions\dateTime.py
+from assistant_functions.location import get_location #import get_location function from assistant_functions\location.py
 import pyttsx3 #import pyttsx library (text to speech)
 import speech_recognition as sr #import speech_recognition library (speech to text)
 
@@ -27,7 +29,9 @@ class Assistant:
         replies = {
             "weather": get_weather,
             "leaving": get_goodbye,
-            "greeting": get_greeting
+            "greeting": get_greeting,
+            "dateTime": get_dateTime,
+            "location": get_location
             } #create a dictionary of replies
         
         reply_func = replies[intent] #get the function from the dictionary
@@ -35,9 +39,12 @@ class Assistant:
         try:
             if callable(reply_func): #check if the function is callable
                 if reply_func == get_greeting:
+                    print(reply_func(self))
                     self.say(reply_func(self))
                 else:
+                    print(reply_func()) #print the reply
                     self.say(reply_func()) #say the reply
+                    
                 
         except Exception as e:
             print(f"Error: {e}") #print the error message if there is an error
@@ -61,10 +68,13 @@ class Assistant:
     def main(self):
         #main function of the assistant
         
+        print("Hello!")
         self.say("Hello!")
+        
         
         while True:
             said = self.listen() #listen to the microphone and store the text into a variable
+            print(said)
             self.reply(said) #reply to the text
             
         

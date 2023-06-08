@@ -4,13 +4,14 @@ def get_weather():
     url = "https://weatherapi-com.p.rapidapi.com/current.json"
 
     querystring = {"q":"Kuala Lumpur","lang":"en","units":"metric"}
+    
+    with open("assistant_functions\weatherApi.txt", "r") as token:
+        headers = {
+            "X-RapidAPI-Key": token.read(),
+	        "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
+        }
 
-    headers = {
-	    "X-RapidAPI-Key": "423f18c5b4msh7244e14a76753c9p12f965jsn476fe09a8430",
-	    "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
-    }
-
-    response = requests.get(url, headers=headers, params=querystring)
+    response = requests.get(url, headers=headers, params=querystring) #get the response from the API
     
     details = response.json() #get the response in json format
     
@@ -20,4 +21,3 @@ def get_weather():
     feelsliketemp = details["current"]["feelslike_c"]
     
     return f"The temperature is {temperature} degree celsius in {location} {country} right now, but it can feels like {feelsliketemp} degree celcius" #return the temperature and location
-
