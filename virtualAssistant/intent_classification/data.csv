@@ -1,0 +1,46 @@
+text,intent
+how are you?,greeting
+good morning,greeting
+good afternoon,greeting
+whats up,greeting
+hello,greeting
+see you later,leaving
+bye,leaving
+talk to you later,leaving
+goodbye,leaving
+thank you,leaving
+quit,leaving
+stop,leaving
+thats all,leaving
+okay thats all,leaving
+okay thats all thank you,leaving
+you can leave,leaving
+youre excused,leaving
+hows the weather,weather
+whats the weather like,weather
+can you tell me the weather,weather
+whats the temperature,weather
+weather,weather
+temperature,weather
+how hot is it?,weather
+whats the weather like today?,weather
+hows the weather today?,weather
+whats the time,dateTime
+whats the date,dateTime
+whats the date and time,dateTime
+can you tell me the date and time,dateTime
+date,dateTime
+time,dateTime
+what time is it,dateTime
+what day is it,dateTime
+what month is it,dateTime
+what year is it,dateTime
+what day month year is it,dateTime
+can you tell me my location,location
+where am I?,location
+whats my location?,location
+where are we,location
+where are you,location
+what country city state is this,location
+what is my location,location
+location,location
