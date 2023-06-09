@@ -1,9 +1,12 @@
 import requests #import request to weather API from RapidAPI
+from location import store_Location
+import geocoder #import geocoder module
 
 def get_weather():
+    g = geocoder.ip('me') #get the location from the IP address
     url = "https://weatherapi-com.p.rapidapi.com/current.json"
 
-    querystring = {"q":"Kuala Lumpur","lang":"en","units":"metric"}
+    querystring = {"q":store_Location(g),"lang":"en","units":"metric"}
     
     with open("assistant_functions\weatherApi.txt", "r") as token:
         headers = {
@@ -21,3 +24,5 @@ def get_weather():
     feelsliketemp = details["current"]["feelslike_c"]
     
     return f"The temperature is {temperature} degree celsius in {location} {country} right now, but it can feels like {feelsliketemp} degree celcius" #return the temperature and location
+
+print(get_weather())
