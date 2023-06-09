@@ -18,7 +18,6 @@ class Assistant:
         self.r = sr.Recognizer() #create an instance of speech_recognition library
         self.mic = sr.Microphone(device_index = 0) #create an instance of Microphone class
         
-    
     def reply(self, text):
         intent = intent_classifier.predict(text) #predict the intent of the text
         
@@ -44,11 +43,9 @@ class Assistant:
                 else:
                     print(reply_func()) #print the reply
                     self.say(reply_func()) #say the reply
-                    
-                
+                            
         except Exception as e:
             print(f"Error: {e}") #print the error message if there is an error
-    
     
     def say(self, text):
         #uses pyttsx library to convert text to speech
@@ -70,7 +67,6 @@ class Assistant:
         
         print("Hello!")
         self.say("Hello!")
-        
         
         while True:
             said = self.listen() #listen to the microphone and store the text into a variable

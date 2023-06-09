@@ -24,5 +24,3 @@ def get_weather():
     feelsliketemp = details["current"]["feelslike_c"]
     
     return f"The temperature is {temperature} degree celsius in {location} {country} right now, but it can feels like {feelsliketemp} degree celcius" #return the temperature and location
-
-print(get_weather())
