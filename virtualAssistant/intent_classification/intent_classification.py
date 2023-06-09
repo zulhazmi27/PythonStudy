@@ -21,5 +21,3 @@ class IntentClassifier:
         return self.clf.predict(self.count_vect.transform([text]))[0] #predict the intent of the text and return the intent
     
 intent_classifier = IntentClassifier() #create an instance of IntentClassifier class
-#print(intent_classifier.predict("Thank you")) #predict the intent of the text
-#print(intent_classifier.predict("how are you?")) #predict the intent of the text
