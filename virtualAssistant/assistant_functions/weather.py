@@ -4,7 +4,7 @@ import geocoder #import geocoder module
 
 def get_weather():
     g = geocoder.ip('me') #get the location from the IP address
-    url = "https://weatherapi-com.p.rapidapi.com/current.json"
+    url = "https://weatherapi-com.p.rapidapi.com/current.json" 
 
     querystring = {"q":store_Location(g),"lang":"en","units":"metric"}
     

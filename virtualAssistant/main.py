@@ -64,7 +64,6 @@ class Assistant:
     
     def main(self):
         #main function of the assistant
-        
         print("Hello!")
         self.say("Hello!")
         
