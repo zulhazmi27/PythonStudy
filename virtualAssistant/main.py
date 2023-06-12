@@ -22,6 +22,7 @@ class Assistant:
         intent = intent_classifier.predict(text) #predict the intent of the text
         
         if intent == "leaving": #check if the intent is leaving and terminate if it is
+            print(get_goodbye())
             self.say(get_goodbye())
             quit()
                     

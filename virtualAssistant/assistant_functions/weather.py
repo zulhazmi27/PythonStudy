@@ -1,5 +1,5 @@
 import requests #import request to weather API from RapidAPI
-from location import store_Location
+from assistant_functions.location import store_Location
 import geocoder #import geocoder module
 
 def get_weather():
@@ -8,7 +8,7 @@ def get_weather():
 
     querystring = {"q":store_Location(g),"lang":"en","units":"metric"}
     
-    with open("assistant_functions\weatherApi.txt", "r") as token:
+    with open("assistant_functions\weatherAPI.txt", "r") as token:
         headers = {
             "X-RapidAPI-Key": token.read(),
 	        "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
